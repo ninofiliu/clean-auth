@@ -10,10 +10,7 @@ globals:
 parserOptions:
   ecmaVersion: 2018
 rules:
-  indent:
-    - error
-    - 4
-  no-console:
-    - off
-  no-plusplus:
-    - off
+  indent: [error, 4]
+  no-console: [off]
+  no-plusplus: [off]
+  no-use-before-define: [error, {functions: false}]

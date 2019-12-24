@@ -11,5 +11,12 @@
             <input type="password" name="password" placeholder="Password">
             <button type="submit">Signup</button>
         </form>
+        <script>
+            const url = new URL(location);
+            const message = url.searchParams.get('message');
+            if (message) {
+                alert(message);
+            }
+        </script>
     </body>
 </html>
