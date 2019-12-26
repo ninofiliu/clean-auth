@@ -2,11 +2,11 @@ const db = require('../db');
 const tokens = require('../../tokens');
 
 /** @type {import('express').RequestHandler} */
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
     const { username, password } = req.body;
 
-    if (!db.some((user) => user.username === username && user.password === password)) {
-        return res.send('Wrong credentials');
+    if (!await db.some((user) => user.username === username && user.password === password)) {
+        return res.redirect(`http://auth.clean-auth.demo?message=${encodeURIComponent('Wrong credentials')}`);
     }
     const token = tokens.generate(username);
     res.cookie('token', token, { domain: '.clean-auth.demo', httpOnly: true });

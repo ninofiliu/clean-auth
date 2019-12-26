@@ -10,6 +10,6 @@ module.exports = (req, res, next) => {
         return next();
     } catch (e) {
         res.status(401);
-        return res.send('Invalid authentication token');
+        return res.redirect(`http://auth.clean-auth.demo/?message=${encodeURIComponent('Invalid authentication token')}`);
     }
 };
