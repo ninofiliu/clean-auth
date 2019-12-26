@@ -19,3 +19,12 @@ An attempt at clearly separating the main app from its authentication feature.
         - `POST /signin {username, password}`
             - adds http-only jwt
             - redirects to main/
+
+## Installation
+
+Make sure you have `{main,auth}.clean-auth.demo` aliased to local addresses, for example on Unix machines by appending this to `/etc/hosts`:
+
+```
+127.0.0.1   main.clean-auth.demo
+127.0.0.2   auth.clean-auth.demo
+```

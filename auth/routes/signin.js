@@ -8,6 +8,6 @@ module.exports = (req, res) => {
         return res.send('Wrong credentials');
     }
     const token = 'will be replaced by a jwt';
-    res.cookie('token', token, { domain: 'localhost:3001', httpOnly: true });
-    return res.redirect('http://localhost:3001');
+    res.cookie('token', token, { domain: '.clean-auth.demo', httpOnly: true });
+    return res.redirect('http://main.clean-auth.demo');
 };

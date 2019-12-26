@@ -1,12 +1,5 @@
 const db = require('../db');
 
-const authOrigin = 'http://localhost:3002';
-const successRedirect = (() => {
-    const url = new URL(authOrigin);
-    url.searchParams.append('message', 'User successfully created');
-    return url.href;
-})();
-
 /** @type {import('express').RequestHandler} */
 module.exports = async (req, res) => {
     const { username, password } = req.body;
@@ -15,5 +8,5 @@ module.exports = async (req, res) => {
         return res.send('User already exists');
     }
     await db.push({ username, password });
-    return res.redirect(successRedirect);
+    return res.redirect(`http://auth.clean-auth.demo/?message=${encodeURIComponent('User successfully created')}`);
 };
