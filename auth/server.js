@@ -9,5 +9,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => res.sendFile(`${__dirname}/index.html`));
 app.post('/signup', routes.signup);
+app.post('/signin', routes.signin);
 
 app.listen(port, () => console.log(`Auth server listening @ http://localhost:${port}`));
