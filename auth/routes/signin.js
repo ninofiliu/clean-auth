@@ -1,4 +1,5 @@
 const db = require('../db');
+const tokens = require('../../tokens');
 
 /** @type {import('express').RequestHandler} */
 module.exports = (req, res) => {
@@ -7,7 +8,7 @@ module.exports = (req, res) => {
     if (!db.some((user) => user.username === username && user.password === password)) {
         return res.send('Wrong credentials');
     }
-    const token = 'will be replaced by a jwt';
+    const token = tokens.generate(username);
     res.cookie('token', token, { domain: '.clean-auth.demo', httpOnly: true });
     return res.redirect('http://main.clean-auth.demo');
 };
